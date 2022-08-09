@@ -1,0 +1,38 @@
+---
+layout: page
+---
+{%- if site.posts.size > 0 -%}
+<ul class="posts">
+    {%- for post in paginator.posts -%}
+    <li>
+        {%- assign date_format = site.texture.date_format | default: "%b %-d, %Y" -%}
+        <div class="post-meta">
+            <a class="post-link" href="{{ post.url | relative_url }}">
+                <span class="post-title">{{ post.title | escape }}</span>
+            </a>
+            <div class="post-date">{{ post.date | date: date_format }}</div>
+        </div>
+        <div class="post">
+            {%- if site.show_excerpts -%}
+            {{ post.excerpt }}
+            {%- endif -%}
+        </div>
+    </li>
+    {%- endfor -%}
+</ul>
+{%- endif -%}
+
+{%- if paginator.total_pages > 1 -%}
+<ul class="pagination">
+    {%- if paginator.previous_page -%}
+    <li>
+        <a href="{{ paginator.previous_page_path | relative_url }}">&larr; Prev</a>
+    </li>
+    {%- endif -%}
+    {%- if paginator.next_page -%}
+    <li>
+        <a href="{{ paginator.next_page_path | relative_url }}">Next &rarr;</a>
+    </li>
+    {%- endif -%}
+</ul>
+{%- endif -%}

@@ -1,0 +1,14 @@
+{%- assign experience = site.data.experience -%}
+{%- if experience -%}
+<section class="experience">
+    <div class="title">experience</div>
+    {%- for position in experience -%}
+    <ul>
+        <li><b>{{ position.company }}</b>, {{ position.location }} — <i>{{ position.role }}</i></li>
+        <li class="time">{{ position.time }}</li>
+        <li class="details">{{ position.details }}</li>
+        <li>{{ position.stack }}</li>
+    </ul>
+    {%- endfor -%}
+</section>
+{%- endif -%}

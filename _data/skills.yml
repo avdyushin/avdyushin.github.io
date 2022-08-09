@@ -1,0 +1,15 @@
+- category: Mobile
+  skill:
+    - Kotlin / Multiplatform
+    - Objective-C
+    - Swift
+
+- category: Desktop
+  skill:
+    - Objective-C
+    - Swift
+    - C/C++
+
+- category: Backend
+  skill:
+    - Firebase

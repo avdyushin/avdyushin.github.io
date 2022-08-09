@@ -1,0 +1,71 @@
+---
+date: 2019-12-05T15:38:25+01:00
+title: "QEMU + macOS"
+tags: ["macOS"]
+---
+
+QEMU on macOS
+
+Install QEMU first (e.g. using Brew):
+
+```bash
+$ brew install qemu
+```
+
+Launch script based on GCW Zero's one (removed SDL and audio set to none).
+
+It should mount `./sdcard` folder as `/media/QEMU\ VVFAT/`.
+
+```bash
+#!/bin/sh
+
+# Possible values: spice, pa, alsa, sdl, oss, none, wav
+export QEMU_AUDIO_DRV=none
+
+MACHINE="-M malta -m 256"
+FIRMWARE="-kernel vmlinux -hda gcw0_system -hdb gcw0_data"
+HARDWARE="-soundhw ac97 -rtc clock=vm"
+NETWORK="-net nic,model=e1000 -net user"
+STORAGE="-hdc fat:rw:sdcard"
+
+qemu-system-mipsel $MACHINE $FIRMWARE $HARDWARE $NETWORK $SERIAL $STORAGE
+```
+
+Successful run and mount of shared folder:
+
+```bash
+ _________________________
+< Welcome to OpenDingux ! >
+ -------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+opendingux:/media/data/local/home # ls /media/QEMU\ VVFAT/
+readme.txt
+```
+
+QEMU window:
+
+<div align='center'>
+<img src='/posts/qemu-macos/qemu-dingux.png' width='240' />
+</div>
+
+## Keys
+
+| Arrow keys | D-PAD |
+| ---------- | :---: |
+| Left Ctrl  | A     |
+| Left Alt   | B     |
+| SPACE      | Y     |
+| Left Shift | X     |
+| Left Ctrl  | A     |
+| TAB        | Left  |
+| Backspace  | Right |
+| Escape     | Sel   |
+| Enter      | Start |
+
+## Links
+- http://www.gcw-zero.com/news.php?id=13

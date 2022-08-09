@@ -1,0 +1,46 @@
+- role: Principal Software Developer
+  company: Splendo
+  location: Wassenaar
+  time: October 2019 - Present
+  details: |
+    Working on multiplatform mobile applications using Kotlin/Swift for X.Bike bike sharing and Splendo Health monitoring/patients apps.
+    Contributing to open source projects such as Kaluga Kotlin library.
+  stack: |
+    Kotlin Multiplatform, Swift, SwiftUI, Firebase, Bluetooth LE, Beacons, bitrise
+
+- role: Senior iOS Engineer
+  company: NGTI / Swisscom
+  location: Rotterdam
+  time: November 2016 - October 2019
+  details: |
+    Took the main part within a small team on development of Swisscom myCloud iOS application for Photos, Videos and Files cloud storage.
+  stack: |
+    Swift, CoreData, Jenkins, REST
+
+- role: Mobile Team Lead
+  company: MyBook / LitRes
+  location: Moscow
+  time: April 2013 - November 2016
+  details: |
+    Moved development of the book reader iOS MyBook app in house, set up the team. Launched a companion app with audio books called ZvukiSlov.
+
+- role: Senior Software Engineer
+  time: January 2011 - April 2013
+  company: EGAR Technology
+  location: Moscow
+  details: |
+      Created and launched stocks/portfolio app for Sberbank. Also developed the University Schedule iOS application for internal startup.
+- role: Senior Software Engineer
+  company: Consolsys
+  location: Kuala Lumpur
+  time: December 2011 - June 2012
+  details: | 
+    Worked on hardware integration with Silverlight services for RHB bank.
+
+- role: Software Engineer
+  company: Yakovlev Design Bureau
+  location: Moscow
+  time: October 2005 - December 2010
+  details: |
+    Flight simulator hardware / software integration (C/C++/Python/Lua).
+    Data processing tools (C/C++/Python) and storage services (PHP/SQL).

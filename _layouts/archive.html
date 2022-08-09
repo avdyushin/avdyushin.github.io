@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {%- include head.html -%}
+    </head>
+    <body>
+        <header class="texture-{{ site.texture.style }}">
+            <div class="container">
+                {%- include nav.html -%}
+            </div>
+            {%- include page_header.html -%}
+        </header>
+        <main>
+            <div class="container">
+                {%- if page.date -%}
+                <h1>Archive of posts from {{ page.date | date: "%Y" }}</h1>
+                {%- else -%}
+                <h1>Archive of posts with {{ page.type }} '{{ page.title }}'</h1>
+                {%- endif -%}
+                <ul class="posts">
+                    {% for post in page.posts %}
+                    {%- assign date_format = site.texture.date_format | default: "%b %-d, %Y" -%}
+                    <li>
+                        <div class="post-meta">
+                            <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                            <span class="post-date">{{ post.date | date: date_format }}</span>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </main>
+        {%- include footer.html -%}
+    </body>
+</html>
