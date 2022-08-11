@@ -1,15 +1,10 @@
-+++
-date = 2019-12-09T19:18:02+01:00
-title = "Disk Utility on macOS"
-description = ""
-slug = ""
-tags = ["macOS"]
-categories = []
-externalLink = ""
-series = []
-+++
+---
+date: 2019-12-09T19:18:02+01:00
+title: Disk Utility on macOS
+tags: ["macOS"]
+---
 
-Disk Utility in Terminal
+## Disk Utility in Terminal
 
 List available volumes:
 

@@ -1,7 +1,7 @@
 ---
 date: 2020-07-04T10:04:46+02:00
 title: "Raspberry Pi + Lakka"
-tags: ["retro", "raspberry"]
+tags: ["Retro", "Raspberry Pi"]
 ---
 
 ## Lakka configuration

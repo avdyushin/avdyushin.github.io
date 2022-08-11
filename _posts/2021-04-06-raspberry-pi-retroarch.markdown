@@ -1,14 +1,8 @@
-+++
-draft = false
-date = 2021-04-06T20:55:04+02:00
-title = "RetroArch on Raspberry Pi 4"
-description = ""
-slug = "" 
-tags = ["retro", "raspberry"]
-categories = []
-externalLink = ""
-series = []
-+++
+---
+date: 2021-04-06T20:55:04+02:00
+title: RetroArch on Raspberry Pi 4
+tags: ["Retro", "Raspberry Pi"]
+---
 
 Requirements:
 
