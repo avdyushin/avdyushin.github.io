@@ -3,7 +3,7 @@ layout: post
 title: "Regular expressions"
 date: "2022-07-06 16:57:52 +0200"
 tags: [Regex expressions, Kotlin]
-mathjax: true
+math: true
 ---
 
 Imagine we need to find some exact _string_ in plain text document, this is straightforward as we know what string to look for.
@@ -77,16 +77,3 @@ r(s\vert t)
 $$
 
 As they both generate exactly the same strings.
-
-```kotlin
-interface Scanner { }
-object DefaultScanner : Scanner
-
-val s = "3+4"
-```
-
-{% highlight kotlin linenos startline=7 %}
-var a = 0
-a++
-println("$a")
-{% endhighlight %}

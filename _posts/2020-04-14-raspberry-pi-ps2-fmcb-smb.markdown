@@ -1,7 +1,7 @@
 ---
 title: "Raspberry Pi + PS2 + FMCB + SMB"
 date: 2020-04-14T09:59:38+02:00
-tags: ["retro", "raspberry"]
+tags: ["Retro", "Raspberry Pi"]
 ---
 
 Running PS2 games over network from USB drive connected to Raspberry Pi

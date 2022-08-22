@@ -1,7 +1,7 @@
 ---
 date: 2020-06-21T20:00:24+02:00
 title: "Cycling Power"
-mathjax: true
+math: true
 ---
 
 ## The physics behind cycling
