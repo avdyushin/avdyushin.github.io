@@ -1,5 +1,5 @@
 ---
-title: "Research Subdomains"
+title: Research Subdomains
 date: 2019-11-20T11:54:20+01:00
 draft: true
 ---

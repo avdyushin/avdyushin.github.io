@@ -1,22 +1,22 @@
 ---
+title: Setup QEMU on macOS
 date: 2019-12-05T15:38:25+01:00
-title: "QEMU + macOS"
-tags: ["macOS"]
+tags: [macos]
 ---
 
 QEMU on macOS
 
-Install QEMU first (e.g. using Brew):
+Install QEMU first (e.g. using Homebrew):
 
-```bash
+```console
 $ brew install qemu
 ```
 
 Launch script based on GCW Zero's one (removed SDL and audio set to none).
 
-It should mount `./sdcard` folder as `/media/QEMU\ VVFAT/`.
+It should mount `./sdcard`{: .filepath } folder as `/media/QEMU\ VVFAT/`{: .filepath }.
 
-```bash
+```shell
 #!/bin/sh
 
 # Possible values: spice, pa, alsa, sdl, oss, none, wav
@@ -33,7 +33,7 @@ qemu-system-mipsel $MACHINE $FIRMWARE $HARDWARE $NETWORK $SERIAL $STORAGE
 
 Successful run and mount of shared folder:
 
-```bash
+```shell
  _________________________
 < Welcome to OpenDingux ! >
  -------------------------
@@ -68,4 +68,5 @@ QEMU window:
 | Enter      | Start |
 
 ## Links
-- http://www.gcw-zero.com/news.php?id=13
+
+- [Running GCW Zero applications with QEMU](http://www.gcw-zero.com/news.php?id=13)

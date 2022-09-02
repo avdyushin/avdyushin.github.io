@@ -1,8 +1,7 @@
 ---
-layout: post
-title: "Regular expressions"
+title: Regular expressions
 date: "2022-07-06 16:57:52 +0200"
-tags: [Regex expressions, Kotlin]
+tags: [regex]
 math: true
 ---
 

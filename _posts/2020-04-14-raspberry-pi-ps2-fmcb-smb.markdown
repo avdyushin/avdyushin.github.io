@@ -1,7 +1,7 @@
 ---
-title: "Raspberry Pi + PS2 + FMCB + SMB"
+title: Setup Samba on Raspberry Pi and FMCB on PS2
 date: 2020-04-14T09:59:38+02:00
-tags: ["Retro", "Raspberry Pi"]
+tags: [retro, raspberry pi]
 ---
 
 Running PS2 games over network from USB drive connected to Raspberry Pi
@@ -20,11 +20,11 @@ Put games you own into `DVD` directory. (Or into `CD` is it's CD)
 
 Use `ifconfig` to discover available network interfaces. Usually `wlan0` is for wireless and `eth0` for ethernet.
 
-Configure in `/etc/dhcpcd.conf`:
+Configure in `/etc/dhcpcd.conf`{: .filepath }:
 
 For ethernet set IP address to 192.168.0.111:
 
-```
+```shell
 interface eth0
 static ip_address=192.168.0.111/24
 static routers=192.168.0.1
@@ -33,7 +33,7 @@ static domain_name_servers=192.168.0.1 8.8.8.8 fd51:42f8:caae:d92e::1
 
 For wireless set IP address to 192.168.0.113:
 
-```
+```shell
 interface wlan0
 static ip_address=192.168.0.113/24
 static routers=192.168.0.1
@@ -44,7 +44,7 @@ static domain_name_servers=192.168.0.1 8.8.8.8 fd51:42f8:caae:d92e::1
 
 Discover UUID:
 
-```sh
+```console
 pi@raspberrypi:~ $ ls -l /dev/disk/by-uuid/
 total 0
 lrwxrwxrwx 1 root root 15 Jun  6 11:28 6341-C9E5 -> ../../mmcblk0p1
@@ -56,58 +56,58 @@ USB Stick Drive usually stands for `sdaX` so UUID is `D7A4-1519` in example abov
 
 Mount point:
 
-```sh
+```console
 pi@raspberrypi:~ $ mkdir /media/ps2
 pi@raspberrypi:~ $ sudo chown -R pi:pi /media/usb
 ```
 
 Auto-mount configuration:
 
-```sh
+```console
 pi@raspberrypi:~ $ sudo vi /etc/fstab
 ```
 
 Add new line and save:
 
-```
+```shell
 UUID=D7A4-1519 /media/ps2 vfat auto,nofail,noatime,users,rw,uid=pi,gid=pi 0 0
 ```
 
-Reload services to re parse `/etc/fstab`:
+Reload services to re parse `/etc/fstab`{: .filepath }:
 
-```sh
+```console
 pi@raspberrypi:~ $ sudo systemctl daemon-reload
 ```
 
 And mount drive:
 
-```sh
+```console
 pi@raspberrypi:~ $ mount /media/ps2
 ```
 
 If drive has been formatted into exFAT file system:
 
-```sh
+```console
 pi@raspberrypi:~ $ sudo apt-get install exfat-fuse exfat-utils
 ```
 
-And use `exfat` in place of `vfat` in `/etc/fstab`.
+And use `exfat` in place of `vfat` in `/etc/fstab`{: .filepath }.
 
 ### Samba
 
 Install Samba:
 
-```sh
+```console
 pi@raspberrypi:~ $ sudo apt-get install samba samba-common-bin
 ```
 
 Configuration:
 
-```sh
+```console
 pi@raspberrypi:~ $ sudo vi /etc/samba/smb.conf
 ```
 
-```
+```shell
 [ps2]
 comment = PS2
 path = /media/ps2
@@ -122,7 +122,7 @@ guest ok = yes
 
 Restart & verify:
 
-```sh
+```console
 pi@raspberrypi:~ $ sudo /etc/init.d/smbd restart
 ```
 
@@ -152,5 +152,7 @@ User            guest
 Don't forget to save configuration.
 
 ## Links
-* https://www.raspberrypi-spy.co.uk/2014/05/how-to-mount-a-usb-flash-disk-on-the-raspberry-pi/
-* https://bitbucket.org/ShaolinAssassin/open-ps2-loader-0.9.3-documentation-project/wiki/tree-structure
+
+- [How to mount a USB flash disk on the Raspberry Pi](https://www.raspberrypi-spy.co.uk/2014/05/how-to-mount-a-usb-flash-disk-on-the-raspberry-pi/)
+- [Tree Structue](https://bitbucket.org/ShaolinAssassin/open-ps2-loader-0.9.3-documentation-project/wiki/tree-structure)
+

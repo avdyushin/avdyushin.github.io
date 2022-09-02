@@ -1,7 +1,7 @@
 ---
-date: 2020-05-23T13:00:53+02:00
 title: Building Split View in SwiftUI
-tags: [Swift, SwiftUI]
+date: 2020-05-23T13:00:53+02:00
+tags: [swift, swiftui]
 ---
 
 ## Introduction

@@ -1,7 +1,7 @@
 ---
+title: Setup RetroArch on Raspberry Pi
 date: 2021-04-06T20:55:04+02:00
-title: RetroArch on Raspberry Pi 4
-tags: ["Retro", "Raspberry Pi"]
+tags: [retro, raspberry pi]
 ---
 
 Requirements:
@@ -21,20 +21,20 @@ Change raspbian boot order to boot into CLI mode, we will add startup screen lat
 
 Install and configure connman:
 
-```sh
-sudo apt install connman
+```console
+$ sudo apt install connman
 ```
 
 Clean old wifi connections (if needed or scan wifi doesn't work):
 
-```sh
-sudo mv /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf.orig
-sudo reboot
+```console
+$ sudo mv /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf.orig
+$ sudo reboot
 ```
 
 Setup connman:
 
-```sh
+```console
 $ connmanctl
 connmanctl> enable wifi
 connmanctl> scan wifi
@@ -51,7 +51,7 @@ $ ifconfig
 
 Edit wifi settings at `/var/lib/connman/wifi_XXXXXX_XXX_managed_psk/settings`
 
-```
+```ini
 [wifi_XXXXXX_XXX_managed_psk]
 Name=XXXXXXXXXX
 SSID=XXXXXXXXXXXXXXXXXXXX
@@ -72,35 +72,35 @@ IPv6.privacy=disabled
 
 Get sources:
 
-```sh
-curl -LO 'https://github.com/libretro/RetroArch/archive/v1.9.0.tar.gz'
-tar -zxvf v1.9.0.tar.gz
-cd RetroArch-1.9.0/
+```console
+$ curl -LO 'https://github.com/libretro/RetroArch/archive/v1.9.0.tar.gz'
+$ tar -zxvf v1.9.0.tar.gz
+$ cd RetroArch-1.9.0/
 ```
 
 Install dependencies:
 
-```sh
-sudo apt install build-essential git libasound2-dev libavcodec-dev libavdevice-dev libavformat-dev libavresample-dev libdrm-common libdrm-dev libdrm2 libegl1-mesa-dev libfreetype6-dev libgbm-dev libgbm-dev libgbm1 libgles2 libgles2-mesa libgles2-mesa-dev libsdl-image1.2-dev libsdl2-dev libswresample-dev libswscale-dev libudev-dev libv4l-dev libxkbcommon-dev libxml2-dev yasm zlib1g-dev
+```console
+$ sudo apt install build-essential git libasound2-dev libavcodec-dev libavdevice-dev libavformat-dev libavresample-dev libdrm-common libdrm-dev libdrm2 libegl1-mesa-dev libfreetype6-dev libgbm-dev libgbm-dev libgbm1 libgles2 libgles2-mesa libgles2-mesa-dev libsdl-image1.2-dev libsdl2-dev libswresample-dev libswscale-dev libudev-dev libv4l-dev libxkbcommon-dev libxml2-dev yasm zlib1g-dev
 ```
 
 Configure:
 
-```sh
-CFLAGS='-march=armv8-a+crc+simd -mcpu=cortex-a72 -mtune=cortex-a72 -mfloat-abi=hard -mfpu=neon-fp-armv8' CXXFLAGS="${CFLAGS}" ./configure  --disable-caca --disable-jack --disable-opengl1 --disable-oss --disable-sdl --disable-sdl2 --disable-videocore --disable-vulkan --disable-wayland --disable-x11 --enable-alsa --enable-egl --enable-floathard --enable-kms --enable-neon --enable-opengles --enable-opengles3 --enable-pulse --enable-udev
+```console
+$ CFLAGS='-march=armv8-a+crc+simd -mcpu=cortex-a72 -mtune=cortex-a72 -mfloat-abi=hard -mfpu=neon-fp-armv8' CXXFLAGS="${CFLAGS}" ./configure  --disable-caca --disable-jack --disable-opengl1 --disable-oss --disable-sdl --disable-sdl2 --disable-videocore --disable-vulkan --disable-wayland --disable-x11 --enable-alsa --enable-egl --enable-floathard --enable-kms --enable-neon --enable-opengles --enable-opengles3 --enable-pulse --enable-udev
 ```
 
 Build with lakka support:
 
-```sh
-make V=1 HAVE_LAKKA=1 HAVE_BLUETOOTH=1 HAVE_NETWORKING=1 -j4
+```console
+$ make V=1 HAVE_LAKKA=1 HAVE_BLUETOOTH=1 HAVE_NETWORKING=1 -j4
 ```
 This will enable Shutdown menu option, Wi-Fi and Bluetooth options.
 
-```sh
-sudo apt install checkinstall
-sudo checkinstall --pkgname=retroarch-rpi4 --conflicts=retroarch --pkgversion=1.9.0 --install=no
-sudo dpkg -i retroarch-rpi4_1.9.0-1_armhf.deb
+```console
+$ sudo apt install checkinstall
+$ sudo checkinstall --pkgname=retroarch-rpi4 --conflicts=retroarch --pkgversion=1.9.0 --install=no
+$ sudo dpkg -i retroarch-rpi4_1.9.0-1_armhf.deb
 ```
 
 Run RetroArch to have configuration file to be created.
@@ -122,23 +122,23 @@ Update assets with online updater and restart retroarch.
 
 ### PSP Emulator
 
-```sh
-git clone https://github.com/hrydgard/ppsspp
-cd ppsspp && git submodule update --init --recursive
-CMAKE_ARGS='-DUSING_X11_VULKAN=OFF -DUSE_SYSTEM_FFMPEG=ON' ./b.sh --rpi --libretro
+```console
+$ git clone https://github.com/hrydgard/ppsspp
+$ cd ppsspp && git submodule update --init --recursive
+$ CMAKE_ARGS='-DUSING_X11_VULKAN=OFF -DUSE_SYSTEM_FFMPEG=ON' ./b.sh --rpi --libretro
 ```
 
 And copy core into retroarch:
 
-```sh
-cp build/lib/ppsspp_libretro.so ~/.config/retroarch/cores/
+```console
+$ cp build/lib/ppsspp_libretro.so ~/.config/retroarch/cores/
 ```
 
 NOTES: PPSSPP works only with gl (and not glcore) video driver.
 
 ### Bluetooth Controller
 
-```sh
+```console
 $ systemctl status bluetooth
 $ sudo rfkill unblock bluetooth # if blocked
 $ bluetoothctl

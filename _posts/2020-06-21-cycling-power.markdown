@@ -1,6 +1,6 @@
 ---
+title: Cycling power calculation
 date: 2020-06-21T20:00:24+02:00
-title: "Cycling Power"
 math: true
 ---
 

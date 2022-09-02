@@ -1,7 +1,7 @@
 ---
 title: String pattern matching in Swift
 date: 2016-07-18 12:06:56
-tags: ["Swift"]
+tags: [swift]
 ---
 
 Our goal is to use string pattern matching in easy-swifty way:

@@ -1,13 +1,14 @@
 ---
-title: "Vim + macOS + Clipboard"
+title: Using system clipboard in Vim on macOS
 date: 2019-11-19T20:28:21+01:00
-tags: ["vim"]
+category: Productivity
+tags: [vim, macos]
 ---
 
 ## Using system clipboard in Vim on macOS
 
 When you do copy, cut and paste text in Vim it goes into Vim's own buffer (register).
-Actually it has many registers, but we are're interested only in primary (`*`, `unnamed`).
+Actually it has many registers, but we are're interested only in primary (`*` or `unnamed`).
 
 More details on registers in Vim:
 
@@ -17,23 +18,22 @@ More details on registers in Vim:
 
 But it's possible to make it work with system clipboard too.
 
-<!-- more -->
 
 ### Pre requirements
 
 Vim requires the `+clipboard` feature flag to be set during compile.
 Let's check if Vim has this feature:
 
-```bash
+```console
 $ vim --version | grep clipboard
 +clipboard         +keymap            +printer           +vertsplit
 +emacs_tags        -mouse_gpm         -sun_workshop      -xterm_clipboard
 ```
 
 By default macOS Catalina ships without clipboard. But the good news
-we can easy install Vim with the `+clipboard` feature from Homebrew for example:
+we can _easy_ install Vim with the `+clipboard` feature from [Homebrew](https://brew.sh) for example:
 
-```bash
+```console
 $ brew install vim
 ```
 

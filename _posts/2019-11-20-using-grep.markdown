@@ -1,18 +1,22 @@
 ---
-date: 2019-11-20T19:28:27+01:00
 title: Using Grep to find files
+date: 2019-11-20T19:28:27+01:00
+category: Productivity
 tags: [grep, vim]
 ---
 
-The grep utility can be used to find files contains occurrences of the given pattern.
+The `grep` utility can be used to find files contains occurrences of the given pattern.
 
-```bash
+```console
 $ man grep
 ```
 
 ### Add colors
 
-```bash
+There is an option to have matching text to be marked up. It's nice to have it each time automatically.
+So it can be done by defining alias:
+
+```shell
 alias grep='grep --color'
 ```
 
@@ -20,9 +24,11 @@ alias grep='grep --color'
 
 To find all files contains occurrences of the pattern 'vi[m]?' at the end of a line:
 
-```bash
+```console
 $ grep -rEi 'vi[m]?$' .
 ```
+
+Where:
 
 * `-r` — recursively
 * `-E` — extended regular expression
@@ -30,7 +36,7 @@ $ grep -rEi 'vi[m]?$' .
 
 To print line numbers and show context surrounding match:
 
-```bash
+```console
 $ grep -rEin -C1 'vim$' .
 --
 ./vim-clipboard.md-12-
@@ -44,53 +50,63 @@ $ grep -rEin -C1 'vim$' .
 --
 ```
 
+Where:
+
 * `-n` — print line number
 * `-C` — show context
 
 To print only filenames:
 
-```bash
+```console
 $ grep -rl 'vim$' .
 ./vim-clipboard.md
 ```
 
 > Duplicates were removed
 
+Where:
+
 * `-l` — show only names of files
+
+To find all files *not* containing string:
+
+```console
+$ grep -rL 'vim' .
+```
+
+Where:
+
+* `-L` — show only names of files not containing string
 
 More useful options:
 
 * `-I` — ignore binary files
 
-To find all files *not* containing string:
+### Combine commands
 
-```bash
-$ grep -rL 'vim' .
-```
+It's possible to combine results and provide them into other tools using pipes.
 
-* `-L` - show only names of files not containing string
+For example to execute `rm` command for each file in search results:
 
-### Bonus
-
-To execute command for each file in search results:
-
-```bash
+```console
 $ grep -r 'string' . | xargs rm
 ```
 
-If file names contains spaces, here is a trick for macOS:
+> This will remove all files contained 'string' pattern in current directory.
+{: .prompt-danger }
 
-```bash
-$ grep -r 'string' . | tr '\n' '\0' | xargs -0 rm
-```
+> If file name contains spaces, here is a trick for macOS:
+>
+> `grep -r 'string' . | tr '\n' '\0' | xargs -0 rm`
+{: .prompt-tip }
 
-To open files in Vim:
+To open result files in Vim:
 
 ```bash
 $ vim $(grep -rL 'pattern' .)
 ```
 
-Inside vim `:bn` to open next buffer and `:bp` previous.
+Inside vim use `:bn` command to open next buffer and `:bp` command for previous.
 
 ### Summary
 

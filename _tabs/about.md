@@ -19,7 +19,7 @@ Then later black screen running `Linux` terminal and looking for the way to exit
 
 Most used commands back in a days:
 
-```terminal
+```console
 $ uptime
 $ uname -a
 $ ./configure

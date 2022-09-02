@@ -1,6 +1,7 @@
 ---
-title: "Using XML and XSLT for code generation"
+title: Using XML and XSLT for code generation
 date: 2020-06-15T07:59:40+02:00
+tags: [xml, xslt]
 ---
 
 XML files can be transformed into different one using XSL templates.
@@ -76,7 +77,7 @@ enum Strings {
 
 Transform XML into text file using `xsltproc` utility:
 
-```sh
+```console
 $ xsltproc enum.xslt input.xml > strings.swift
 ```
 
@@ -111,7 +112,7 @@ To do this we can use `xsl:key` together with `generate-id`:
 
 Applying this template to the input XML will produce a list of unique translated languages:
 
-```sh
+```console
 $ xsltproc list.xslt input.xml
 en
 nl
@@ -119,7 +120,7 @@ ru
 de
 ```
 
-Next step is to generate `Localized.strings` file for given language.
+Next step is to generate `Localized.strings`{: .filepath } file for given language.
 
 ### Input parameters
 
@@ -136,7 +137,7 @@ A `xsl:variable` defines global (or local) variable that will be used as default
 
 To set parameter from outside we have to pass it as a parameter to `xsltproc`:
 
-```sh
+```console
 $ xsltproc --stringparam lang ru strings.xslt input.xml
 ```
 
@@ -186,11 +187,11 @@ Using `xsl:if` element we can apply template only if `test` condition is true.
 1. Check if content of node with name $lang (our external parameter) is not empty
 1. Get content of the node
 
-### Bash Script
+### Shell script
 
-Here is bash script to put all things together:
+Here is shell script to put all things together:
 
-```bash
+```shell
 !/bin/sh
 
 for lang in $(xsltproc list.xslt strings.xml) # 1
@@ -212,7 +213,7 @@ xsltproc enum.xslt strings.xml > strings.generated.swift #4
 
 To validate input XML file we can use `xmllint`:
 
-```sh
+```shell
 $ xmllint strings.xml
 ```
 
@@ -253,7 +254,7 @@ In order to sort nodes we can use `xsl:sort` element:
 
 Usage:
 
-```sh
+```console
 $ xsltproc -o formatted.xml sort.xslt input.xml
 ```
 
@@ -266,5 +267,5 @@ Adding only one more template and step into generation script it could generate 
 
 ## Links
 
-- https://github.com/avdyushin/Localizable
-- https://www.w3schools.com/xml/xsl_elementref.asp
+- [Localizable](https://github.com/avdyushin/Localizable)
+- [XSLT Elements Reference](https://www.w3schools.com/xml/xsl_elementref.asp)

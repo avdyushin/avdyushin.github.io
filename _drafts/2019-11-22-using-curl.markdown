@@ -1,17 +1,17 @@
 ---
+title: Using cURL
 date: 2019-11-22T11:23:16+01:00
-title: "Using cURL"
-tags: ["curl"]
+tags: [curl]
 ---
 
-To sumbit form fields with cURL use `-d` command:
+To sumbit form fields with `curl` use `-d` command:
 
-```bash
-curl -d 'title=foo&body=bar' $TARGET
+```console
+$ curl -d 'title=foo&body=bar' $TARGET
 ```
 
 To set cookie use `-b` command:
 
-```bash
-curl -b 'session=foo' $TARGET
+```console
+$ curl -b 'session=foo' $TARGET
 ```

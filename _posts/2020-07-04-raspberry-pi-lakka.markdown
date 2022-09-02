@@ -1,7 +1,7 @@
 ---
+title: Setup Lakka on Raspberry Pi
 date: 2020-07-04T10:04:46+02:00
-title: "Raspberry Pi + Lakka"
-tags: ["Retro", "Raspberry Pi"]
+tags: [retro, raspberry pi]
 ---
 
 ## Lakka configuration
@@ -19,8 +19,8 @@ ssh root@lakka.local
 
 Edit WiFi settings:
 
-```sh
-vi /storage/.cache/connman/wifi_XXXXXX_managed_psk/settings
+```console
+$ vi /storage/.cache/connman/wifi_XXXXXX_managed_psk/settings
 ```
 
 Change IP method to `manual` and set `local_address`:
@@ -44,16 +44,16 @@ IPv6.privacy=disabled
 
 Restart WiFi:
 
-```sh
-connmanctl disable wifi
-connmanctl enable wifi
-connmanctl connect wifi_XXXXXX_managed_psk
+```console
+$ connmanctl disable wifi
+$ connmanctl enable wifi
+$ connmanctl connect wifi_XXXXXX_managed_psk
 ```
 
 The same for the wired connection (you have to connect cable first to see this config):
 
-```sh
-vi /storage/.cache/connman/ethernet_XXXXXX_cable/settings
+```console
+$ vi /storage/.cache/connman/ethernet_XXXXXX_cable/settings
 ```
 
 On local machine for easy access can be added: `~/.ssh/config`:
@@ -70,13 +70,13 @@ Host lakka.eth
 
 Then to connect to ssh via WiFi:
 
-```sh
-ssh root@lakka.wlan
+```console
+$ ssh root@lakka.wlan
 ```
 
 ### Set timezone
 
-```sh
+```console
 echo "TIMEZONE=Europe/Amsterdam" > /storage/.cache/timezone
 ```
 

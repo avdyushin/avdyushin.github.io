@@ -1,10 +1,10 @@
 ---
 title: Command, option and shift in Unicode
 date: 2014-03-25 12:58:29
-tags: ["macOS"]
+tags: [macos]
 ---
 
-Unicode macOS symbols list:
+Unicode `macOS` symbols list:
 
 * ⌘ – `&#x2318;` – `&#8984;` – Command Key
 * ⌥ – `&#x2325;` – `&#8997;` – Option Key

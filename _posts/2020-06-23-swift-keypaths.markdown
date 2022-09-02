@@ -1,6 +1,7 @@
 ---
+title: Swift keypaths
 date: 2020-06-23T11:10:41+02:00
-title: "Swift Keypaths"
+tags: [swift]
 ---
 
 Extending `Sequence` to have method that calculates sum:

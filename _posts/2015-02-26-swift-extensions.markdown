@@ -1,7 +1,7 @@
 ---
 title: Extensions in Swift
 date: 2015-02-26 14:19:26
-tags: ["Swift"]
+tags: [swift]
 ---
 
 Extensions in _Swift_ allow us to add methods to existing objects (`class`, `struct`, `enum` and `protocol`).

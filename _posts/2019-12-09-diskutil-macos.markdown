@@ -1,14 +1,15 @@
 ---
-date: 2019-12-09T19:18:02+01:00
 title: Disk Utility on macOS
-tags: ["macOS"]
+date: 2019-12-09T19:18:02+01:00
+category: Productivity
+tags: [macos]
 ---
 
 ## Disk Utility in Terminal
 
 List available volumes:
 
-```bash
+```console
 $ diskutil list
 [...]
 /dev/disk2 (internal, physical):
@@ -19,13 +20,13 @@ $ diskutil list
 
 Format to specific file system:
 
-```bash
+```console
 $ sudo diskutil eraseDisk FAT32 NO_NAME MBRFormat /dev/disk2
 ```
 
 Format to EXT3:
 
-```bash
+```console
 # Install e2fsprogs
 $ brew install e2fsprogs
 # Unmount is important
@@ -33,4 +34,3 @@ $ diskutil unmountDisk /dev/disk2
 # Format as EXT3
 $ sudo $(brew --prefix e2fsprogs)/sbin/mkfs.ext3 /dev/disk2
 ```
-

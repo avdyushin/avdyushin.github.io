@@ -1,7 +1,7 @@
 ---
 title: Using Mixins in Swift
 date: 2017-03-19 20:28:21+01:00
-tags: ["Swift"]
+tags: [swift]
 ---
 
 Mixin — it is a protocol with default implementation of methods.

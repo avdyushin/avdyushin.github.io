@@ -1,7 +1,7 @@
 ---
-date: 2018-09-18 10:28:21+01:00
 title: CALayer Animations
-tags: [Swift]
+date: 2018-09-18 10:28:21+01:00
+tags: [swift]
 ---
 
 Create custom progress view using `CALayer` and `CoreAnimation`.

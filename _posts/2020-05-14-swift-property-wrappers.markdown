@@ -1,6 +1,7 @@
 ---
-title: "Swift DI using Property Wrappers"
+title: Building Swift DI using Property Wrappers
 date: 2020-05-14T16:53:45+02:00
+tags: [swift]
 ---
 
 # Dependency Injection using Swift Property Wrappers

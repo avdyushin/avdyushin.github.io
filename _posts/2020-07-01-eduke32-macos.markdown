@@ -1,6 +1,7 @@
 ---
+title: Setup EDuke32 on macOS
 date: 2020-07-01T13:36:37+02:00
-title: "EDuke32 + macOS"
+tags: [retro, macos]
 ---
 
 ## EDuke32 Configuration
@@ -8,22 +9,23 @@ title: "EDuke32 + macOS"
 Check list to run EDuke32 on macOS with HRP (High Resolution Pack):
 
 1. Get [EDuke32](http://eduke32.com) and launch for the first time to generate default config files
-1. Check logs here: `~/Library/Logs/eduke32.log`
-1. Configuration path: `~/.config/eduke32/`
-1. Edit `eduke32.cfg` to set `NoAutoLoad = 0`
-1. Get [HRP](http://hrp.duke4.net) and put _zip_ files into: `~/.config/eduke32/autoload/`
+1. Check logs here: `~/Library/Logs/eduke32.log`{: .filepath }
+1. Configuration path: `~/.config/eduke32/`{: .filepath }
+1. Edit `eduke32.cfg`{: .filepath } to set `NoAutoLoad = 0`
+1. Get [HRP](http://hrp.duke4.net) and put _zip_ files into: `~/.config/eduke32/autoload/`{: .filepath }
 1. Display Setup -> Video Mode -> Renderer -> Polymer
 1. Display Setup -> Polymer Setup -> Turn on stuff
 
-NOTES: `duke3d_hrp.zip` should be original downloaded file and not unpacked and compressed again
+> `duke3d_hrp.zip`{: .filepath } should be original downloaded file and not unpacked and compressed again
+{: .prompt-warning }
 
 ## Levels Data
 
-Once you own Duke Nukem you have to put game data into `~/.config/eduke32`
+Once you own Duke Nukem you have to put game data into `~/.config/eduke32`{: .filepath }
 
 In order to download owned Duke Nukem 3D: 20th Anniversary World Tour from Steam app on macOS:
 
-Create new file `~/Library/Application Support/Steam/steamapps/appmanifest_434050.acf`:
+Create new file `~/Library/Application Support/Steam/steamapps/appmanifest_434050.acf`{: .filepath }:
 
 ```
 "AppState"
@@ -38,10 +40,10 @@ Create new file `~/Library/Application Support/Steam/steamapps/appmanifest_43405
 
 Launch Steam app and download game.
 
-Copy `DUKE.RTS` and `DUKE3D.GRP` from `~/Library/Application Support/Steam/steamapps/common/Duke Nukem 3D/` into `~/.config/eduke32/`.
+Copy `DUKE.RTS`{: .filepath } and `DUKE3D.GRP`{: .filepath } from `~/Library/Application Support/Steam/steamapps/common/Duke Nukem 3D/`{: .filepath } into `~/.config/eduke32/`{: .filepath }.
 
 ### Links
 
-- http://eduke32.com
-- http://hrp.duke4.net
-- https://github.com/dotfloat/steam-appmanifest
+- [EDuke32](http://eduke32.com)
+- [Hi-Res pack](http://hrp.duke4.net)
+- [Steam AppManifest](https://github.com/dotfloat/steam-appmanifest)
