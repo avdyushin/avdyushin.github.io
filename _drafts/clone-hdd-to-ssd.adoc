@@ -1,0 +1,53 @@
+= Clone HDD to smaller SSD
+
+To clone HDD to SSD we need:
+
+- Linux machine
+- HDD
+- SSD (can be smaller than HDD)
+- spare time 
+
+The source disk must have free unallocated space in the end.
+So data and partitions can fit to smaller size.
+
+It's possible (and easy) to shrink partition using `gparted` tool.
+Keep in mind to shrink the right side.
+
+== Copy
+
+Device filenames as `/dev/sdx`, where `x` is a lowercase letter, for example `/dev/sda` is a first disk and so on.
+
+The *dd* utility to bite wise copy in given block size.
+
+To copy `/dev/sdb` *to* `/dev/sda` use this command:
+
+----
+$ dd if=/dev/sdb of=/dev/sda bs=4M status=progress
+----
+
+It took around hour to copy 1TB HDD to 480GB SSD (stops automatically when no more space left on target device).
+No prompt will be given and disk will be overridden from this moment on.
+
+Now we have some issues because of different disks sizes:
+
+* GPT only in the beginning of the disk (must be in the end as well)
+* It _thinks_ that disk still 1TB of size, while it's not
+
+== Fix GPT partition
+
+Install `gdisk` if it's not present yet.
+Run it with a target device:
+
+----
+$ gdisk /dev/sda
+----
+
+Type `v` to verify disk and view found problems.
+
+- `x` enter expert mode 
+- fix issues with `e` (if it was mentioned during verification)
+- write changes using `w`
+- print partitions `p` and verify `v` if it's correct now
+
+That's basically it.
+The source SSD are ready to be booted up.

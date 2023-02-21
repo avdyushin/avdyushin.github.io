@@ -1,0 +1,34 @@
+= Running old x86 games on Steam Deck
+:page-tags: [retro, steam deck]
+
+== Preparing CD/DVD images
+
+Make images can be possible by using DiskUtil app on macOS:
+
+Select menu:File[New Image > New Image From "Game CD"] to create new CD/DVD image, choose Master CD/DVD, it will create `*.cdr` file.
+
+Covert `*.cdr` to `*.iso`:
+
+----
+$ hdiutil makehybrid -iso -joliet -o image.iso image.cdr
+----
+
+This command also can create ISO image out of the given folder.
+
+In case of `*.bin`/`*.cue` ISO images:
+
+----
+$ bchunk -v image.bin image.cue image.iso
+----
+
+In case of `*.ccd`/`*.img` ISO images:
+
+----
+$ ccd2iso image.img image.iso
+----
+
+== Wine / Proton
+
+`STEAM_COMPAT_MOUNTS=/run/media/mmblk0p1:/tmp/mount/iso`
+
+`WINEDLLOVERRIDES="dinput8=n,b" %command%`

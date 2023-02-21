@@ -1,5 +1,5 @@
 task :drafts do
-  system('bundle exec jekyll serve --drafts --livereload')
+  system('bundle exec jekyll serve --trace --drafts --livereload')
 end
 
 task :serve do

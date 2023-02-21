@@ -1,0 +1,53 @@
+= x86 on Raspberry Pi
+:page-tags: [retro, raspberry pi]
+
+Running x86 (including Windows) binaries on Raspberry Pi4.
+
+== Pre requirements
+
+* Raspberry Pi4 running Pi OS
+* Terminal usage skills
+* Plenty of time
+
+== The plan
+
+The goal is to run old (from 2000) Windows games on Raspberry Pi4.
+As CPU we have is ARM and not x86 we can just install/run Wine.
+To so we have to able to run x86 Linux binaries first and then focus on Windows'.
+
+* Install `box86`
+* Install `Wine`
+* Run some `*.exe` files
+
+=== Installing box86
+
+Verify if `cmake` and `git` present on the machine or install using command:
+
+----
+$ sudo apt-get install cmake git
+----
+
+Clone and install `box86`:
+
+----
+$
+----
+
+=== Installing Wine
+
+Fetch binaries for i386 platform and extract them:
+
+----
+$ 
+----
+
+=== Running Windows binaries
+
+How cool is that, running Windows binaries on ARM Linux embedded device?
+
+=== Links
+
+* http://thepigamer.blogspot.com/2021/01/performance-topic-running-x86-games-on.html
+* https://github.com/ptitSeb/box86
+* https://github.com/ptitSeb/box86/blob/master/docs/X86WINE.md
+* https://github.com/xan1242/hp2wsfix#workaround-for-wine-users

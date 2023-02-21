@@ -88,6 +88,26 @@ $ noglob zmv -W *.md *.markdown
 
 With `noglob` no need to quote arguments.
 
+## Arguments
+
+### Reuse arguments from previous command
+
+```console
+$ echo 1 2 3 4
+```
+
+* `!$` — the last argument `4`
+* `!*` — all the arguments `1 2 3 4`
+
+### Repeat last command
+
+`!!` to repeat last used command, for example:
+
+```console
+$ echo 1 2 3
+$ sudo !!
+```
+
 ## Links
 
 - [Changing Directories](https://zsh.sourceforge.io/Doc/Release/Options.html#Changing-Directories)
